@@ -108,13 +108,6 @@
         "description": "Trust subnet CIDR"
       }
     },
-    "subnet3Prefix": {
-      "type": "string",
-      "defaultValue": "192.168.3.0/24",
-      "metadata": {
-        "description": "DMZ subnet CIDR"
-      }
-    },
     "subnet0StartAddress": {
       "type": "string",
       "defaultValue": "192.168.0.4",
@@ -134,13 +127,6 @@
       "defaultValue": "192.168.2.4",
       "metadata": {
         "description": "Trust subnet start address"
-      }
-    },
-    "subnet3StartAddress": {
-      "type": "string",
-      "defaultValue": "192.168.3.4",
-      "metadata": {
-        "description": "DMZ subnet start address"
       }
     },
     "adminUsername": {
@@ -301,27 +287,6 @@
               "privateIPAddress": "[parameters('subnet2StartAddress')]",
               "subnet": {
                 "id": "[variables('subnet2Ref')]"
-              }
-            }
-          }
-        ]
-      }
-    },
-    {
-      "name": "[concat(variables('nicName'), '3')]",
-      "type": "Microsoft.Network/networkInterfaces",
-      "location": "[resourceGroup().location]",
-      "apiVersion": "2015-06-15",
-      "properties": {
-        "enableIPForwarding": true,
-        "ipConfigurations": [
-          {
-            "name": "ipconfig-dmz",
-            "properties": {
-              "privateIPAllocationMethod": "Static",
-              "privateIPAddress": "[parameters('subnet3StartAddress')]",
-              "subnet": {
-                "id": "[variables('subnet3Ref')]"
               }
             }
           }
