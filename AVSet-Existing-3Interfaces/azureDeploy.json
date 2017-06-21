@@ -301,8 +301,7 @@
         "dependsOn": [
          "[concat('Microsoft.Network/networkInterfaces/', variables('nicName'), '0')]",
          "[concat('Microsoft.Network/networkInterfaces/', variables('nicName'), '1')]",
-         "[concat('Microsoft.Network/networkInterfaces/', variables('nicName'), '2')]",
-         "[concat('Microsoft.Network/networkInterfaces/', variables('nicName'), '3')]"
+         "[concat('Microsoft.Network/networkInterfaces/', variables('nicName'), '2')]"
       ],
         "plan": {
            "name": "[variables('imageSku')]",
@@ -353,12 +352,7 @@
                     "properties": {
                         "primary": false
                     }
-                }, {
-                    "id": "[resourceId('Microsoft.Network/networkInterfaces', concat(variables('nicName'),'3'))]",
-                    "properties": {
-                        "primary": false
-                    }
-                }]
+                },]
             }
         }
     }    
