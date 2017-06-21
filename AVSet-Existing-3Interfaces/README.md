@@ -2,7 +2,11 @@
 
 [<img src="http://azuredeploy.net/deploybutton.png"/>](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fbmenestret%2FAzure%2Fmaster%2FAVSet-Existing-3Interfaces%2FazureDeploy.json)
 
-- This template was created to support the deployment of a 4 interface Palo Alton Networks firewall into an existing Microsoft Load Balancer / Availability Set deployment. It has the follwing following features and requirements:
+
+- This template was created to support the deployment of a 3 interfaces Palo Alton Networks firewall into an existing Microsoft Load Balancer / Availability Set deployment. It has the follwing following features and requirements:
+- modifs done to integrate existing environment.
+
+
 
 FEATURES:
 - The firewall deploys with 4 interfaces.  1 MGMT and 3 data plane into an existing VNET and Storage Account.
