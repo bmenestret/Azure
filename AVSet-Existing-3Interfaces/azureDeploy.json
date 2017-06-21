@@ -87,13 +87,6 @@
         "description": "Subnet for Trust"
       }
     },
-    "subnet3Name": {
-      "type": "string",
-      "defaultValue": "DMZ",
-      "metadata": {
-        "description": "Subnet for DMZ"
-      }
-    },
     "subnet0Prefix": {
       "type": "string",
       "defaultValue": "192.168.0.0/24",
@@ -200,7 +193,6 @@
     "subnet0Ref": "[concat(variables('vnetID'),'/subnets/',parameters('subnet0Name'))]",
     "subnet1Ref": "[concat(variables('vnetID'),'/subnets/',parameters('subnet1Name'))]",
     "subnet2Ref": "[concat(variables('vnetID'),'/subnets/',parameters('subnet2Name'))]",
-    "subnet3Ref": "[concat(variables('vnetID'),'/subnets/',parameters('subnet3Name'))]",
     "publicIPAddressType": "Dynamic",
     "subnets": [
       {
@@ -222,12 +214,6 @@
         "name": "[parameters('subnet2Name')]",
         "properties": {
           "addressPrefix": "[parameters('subnet2Prefix')]"
-        }
-      },
-      {
-        "name": "[parameters('subnet3Name')]",
-        "properties": {
-          "addressPrefix": "[parameters('subnet3Prefix')]"
         }
       }
     ],

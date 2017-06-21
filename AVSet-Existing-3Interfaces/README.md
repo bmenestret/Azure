@@ -1,6 +1,6 @@
 # Azure-Firewall-into-existing-Load-Balancer-Availabilty-set
 
-[<img src="http://azuredeploy.net/deploybutton.png"/>](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fdjspears%2FPaloAlto%2Fmaster%2FAzure-1FW-existing-LB-AVset%2FazureDeploy.json)
+[<img src="http://azuredeploy.net/deploybutton.png"/>](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fbmenestret%2FAzure%2Fmaster%2FAVSet-Existing-3Interfaces%2FazureDeploy.json)
 
 - This template was created to support the deployment of a 4 interface Palo Alton Networks firewall into an existing Microsoft Load Balancer / Availability Set deployment. It has the follwing following features and requirements:
 
