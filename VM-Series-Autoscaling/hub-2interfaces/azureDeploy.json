@@ -224,7 +224,6 @@
         "appInsightsName": "[concat(variables('rgname'), '-appinsights-', variables('namingInfix'))]",
         "loadBalancerName": "[concat(variables('rgname'), '-outbound-lb' )]",
         "MgmtSubnetName" : "[concat(parameters('virtualNetworkName'), '-mgmt-subnet')]",
-        "untrustedSubnetName" : "[concat(parameters('virtualNetworkName'), '-untrust-subnet')]",
         "trustedSubnetName" : "[concat(parameters('virtualNetworkName'), '-trust-subnet')]",
         "mgmtPublicIPName" : "[concat(variables('rgname'), '-mgmt-pip-', variables('namingInfix'))]",
         "firewallVmName": "[concat(variables('rgName'), '-outbound-vm-series-firewall')]",
@@ -336,17 +335,11 @@
                     "mgmtSubnetName": {
                         "value": "[variables('mgmtSubnetName')]"
                     },
-                    "untrustSubnetName": {
-                        "value": "[variables('untrustedSubnetName')]"
-                    },
                     "trustSubnetName": {
                         "value": "[variables('trustedSubnetName')]"
                     },
                     "mgmtSubnetPrefix": {
                         "value": "[parameters('mgmtSubnetPrefix')]"
-                    },
-                    "untrustSubnetPrefix": {
-                        "value": "[parameters('untrustSubnetPrefix')]"
                     },
                     "trustSubnetPrefix": {
                         "value": "[parameters('trustSubnetPrefix')]"
@@ -446,9 +439,6 @@
                     "subnetNameMgmt": {
                         "value": "[variables('MgmtSubnetName')]"
                     },
-                    "subnetNameUntrust": {
-                        "value": "[variables('untrustedSubnetName')]"
-                    },
                     "subnetNameTrust": {
                         "value": "[variables('trustedSubnetName')]"
                     },
@@ -484,10 +474,6 @@
         },
         "HubFwMgmtSubnetName": {
             "value": "[variables('MgmtSubnetName')]",
-            "type": "string"
-        },
-        "HubFwUntrustSubnetName": {
-            "value": "[variables('untrustedSubnetName')]",
             "type": "string"
         },
         "HubFwTrustSubnetName": {

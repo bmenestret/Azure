@@ -102,12 +102,6 @@
                 "description": "Management Subnet name"
             }
         },
-        "subnetNameUntrust": {
-            "type": "string",
-            "metadata": {
-                "description": "Untrust Subnet name"
-            }
-        },
         "subnetNameTrust": {
             "type": "string",
             "metadata": {
@@ -178,9 +172,7 @@
         "namingInfix": "[substring(uniqueString(parameters('guidValue')), 0, 5)]",
         "autoscaleName": "[concat('autoscale', variables('namingInfix'))]",
         "nicNameMgmt": "[concat('nicmgmt', variables('namingInfix'))]",
-        "nicNameUntrust": "[concat('nicuntrust', variables('namingInfix'))]",
         "nicNameTrust": "[concat('nictrust', variables('namingInfix'))]",
-        "ipConfigNameuntrust": "[concat('ipconfiguntrust', variables('namingInfix'))]",
         "ipConfigNametrust": "[concat('ipconfigtrust', variables('namingInfix'))]",
         "ipConfigNamemgmt": "[concat('ipconfigmgmt', variables('namingInfix'))]",
         "imagePublisher": "paloaltonetworks",
@@ -284,28 +276,6 @@
                                         },
                                         "publicIPAddressConfiguration": {
                                             "name": "pavm_pip",
-                                            "properties": {
-                                                "idleTimeoutInMinutes": 15
-                                            }
-                                        }
-                                    }
-                                }]
-                            }
-                        },
-                        {
-                            "name": "[variables('nicNameUntrust')]",
-                            "properties": {
-                                "primary": "false",
-                                "enableIPForwarding": "true",
-                                "ipConfigurations": [
-                                {
-                                    "name": "[variables('ipConfigNameuntrust')]",
-                                    "properties": {
-                                        "subnet": {
-                                            "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/virtualNetworks/', parameters('virtualNetworkName'), '/subnets/', parameters('subnetNameUntrust'))]"
-                                        },
-                                        "publicIPAddressConfiguration": {
-                                            "name": "hub_pavm_pip",
                                             "properties": {
                                                 "idleTimeoutInMinutes": 15
                                             }
