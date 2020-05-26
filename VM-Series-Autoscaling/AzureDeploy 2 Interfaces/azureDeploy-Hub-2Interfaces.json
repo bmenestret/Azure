@@ -217,7 +217,6 @@
         "deployLoadBalancerURL": "[concat(variables('baseUrl'),'/deployLoadBalancer.json')]",
         "appInsightsUrl": "[concat(variables('baseUrl'),'/deployAppInsights.json')]",
         "vmseriesURL" : "[concat(variables('baseUrl'),'/vmseries.json')]",
-
         "networkApiVersion": "2017-06-01",
         "computeApiVersion": "2017-03-30",
         "appInsightsApiVersion": "2018-05-01", 
@@ -338,17 +337,11 @@
                     "mgmtSubnetName": {
                         "value": "[parameters('mgmtSubnetName')]"
                     },
-                    "untrustSubnetName": {
-                        "value": "[parameters('untrustedSubnetName')]"
-                    },
                     "trustSubnetName": {
                         "value": "[parameters('trustedSubnetName')]"
                     },
                     "mgmtSubnetPrefix": {
                         "value": "[parameters('mgmtSubnetPrefix')]"
-                    },
-                    "untrustSubnetPrefix": {
-                        "value": "[parameters('untrustSubnetPrefix')]"
                     },
                     "trustSubnetPrefix": {
                         "value": "[parameters('trustSubnetPrefix')]"
@@ -447,9 +440,6 @@
                     },
                     "subnetNameMgmt": {
                         "value": "[parameters('MgmtSubnetName')]"
-                    },
-                    "subnetNameUntrust": {
-                        "value": "[parameters('untrustedSubnetName')]"
                     },
                     "subnetNameTrust": {
                         "value": "[parameters('trustedSubnetName')]"
