@@ -41,20 +41,6 @@
                 "description": "CIDR for Management subnet."
             }
         },
-        "untrustedSubnetName": {
-            "type": "string",
-            "defaultValue": "untrust",
-            "metadata": {
-                "description": "Name for Untrust Network."
-            }
-        },
-        "untrustSubnetPrefix": {
-            "type": "string",
-            "defaultValue": "10.0.1.0/24",
-            "metadata": {
-                "description": "CIDR for Untrust Network."
-            }
-        },
         "trustedSubnetName": {
             "type": "string",
             "defaultValue": "trust",
@@ -152,7 +138,6 @@
 			}
 		},
         "bootstrapStorageAccountAccessKey": {
-            "defaultValue": "5ccP0toZtB1p4svKfOr97cGuKSal2ofFj+5+eW2pdu7ljDUN0zMfShYz4yaw+aTl7caCIDled+o+o/SGq3blRA==",
             "type": "securestring",
             "metadata":{
                 "description": "The access key for the bootstrap storage account."
@@ -218,7 +203,6 @@
             }
         },
        "panoramaPluginMessageHandlerUrl": {
-            "defaultValue": "https://panoramamessagehandler.azurewebsites.net/api/infra?code=Eazow2L70Bwju5FH3ejBN/25rF8lHg2XtR6AFl7MMHZrTU2URQ5yFg==",
             "type": "string",
             "metadata":{
               "description": "Azure Function handler launched as part of the Service Bus template which handles VM licensing."
