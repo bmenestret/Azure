@@ -211,8 +211,7 @@
     },
     
     "variables": {
-//        "baseUrl" : "https://raw.githubusercontent.com/PaloAltoNetworks/azure-autoscaling/master/Version-1-0/hub",
-        "baseUrl" : "https://raw.githubusercontent.com/bmenestret/Azure/master/VM-Series-Autoscaling/AzureDeploy%20Tests/",
+        "baseUrl" : "https://raw.githubusercontent.com/bmenestret/Azure/master/VM-Series-Autoscaling/AzureDeploy%202%20Interfaces/",
         "deployNsgURL"         : "[concat(variables('baseUrl'),'/deployNsg.json')]",
         "deployVnetURL"        : "[concat(variables('baseUrl'),'/deployVnet.json')]",
         "deployLoadBalancerURL": "[concat(variables('baseUrl'),'/deployLoadBalancer.json')]",
@@ -232,8 +231,6 @@
         "fwLbBePoolName": "[concat(variables('rgname'), '_inbound_hub_fw_lb_backend_pool_', variables('namingInfix'))]",
         "appInsightsName": "[concat(variables('rgname'), '-appinsights-', variables('namingInfix'))]",
         "loadBalancerName": "[concat(variables('rgname'), '-outbound-lb' )]",
-        //"mgmtSubnetName" : "[parameters('mgmtSubnetName')]",
-        //"trustedSubnetName" : "[parameters('trustedSubnetName')]",
         "mgmtPublicIPName" : "[concat(variables('rgname'), '-mgmt-pip-', variables('namingInfix'))]",
         "firewallVmName": "[concat(variables('rgName'), '-outbound-vm-series-firewall')]",
 		"customDataField": "[concat('storage-account=', parameters('bootstrapStorageAccount'), ',access-key=', parameters('bootstrapStorageAccountAccessKey'), ',file-share=', parameters('bootstrapFileShare'),',share-directory=', parameters('bootstrapSharedDir'))]",

@@ -72,6 +72,6 @@
         "MgmtSubnetNsgName": {
             "value": "[concat(parameters('nsgName'), '-mgmt')]",
             "type": "string"
-        },
+        }
 	}
 }
