@@ -248,9 +248,9 @@
         "fwLbBePoolName": "[concat(variables('rgname'), '_inbound_hub_fw_lb_backend_pool_', variables('namingInfix'))]",
         "appInsightsName": "[concat(variables('rgname'), '-appinsights-', variables('namingInfix'))]",
         "loadBalancerName": "[concat(variables('rgname'), '-outbound-lb' )]",
-        "MgmtSubnetName" : "management",
-        "untrustedSubnetName" : "untrust",
-        "trustedSubnetName" : "trust",
+        //"mgmtSubnetName" : "[parameters('mgmtSubnetName')]",
+        //"untrustedSubnetName" : "[parameters('untrustedSubnetName')]",
+        //"trustedSubnetName" : "[parameters('trustedSubnetName')]",
         "mgmtPublicIPName" : "[concat(variables('rgname'), '-mgmt-pip-', variables('namingInfix'))]",
         "firewallVmName": "[concat(variables('rgName'), '-outbound-vm-series-firewall')]",
 		"customDataField": "[concat('storage-account=', parameters('bootstrapStorageAccount'), ',access-key=', parameters('bootstrapStorageAccountAccessKey'), ',file-share=', parameters('bootstrapFileShare'),',share-directory=', parameters('bootstrapSharedDir'))]",
@@ -359,13 +359,13 @@
                         "value": "[parameters('virtualNetworkAddressPrefix')]"
                     },
                     "mgmtSubnetName": {
-                        "value": "[variables('mgmtSubnetName')]"
+                        "value": "[parameters('mgmtSubnetName')]"
                     },
                     "untrustSubnetName": {
-                        "value": "[variables('untrustedSubnetName')]"
+                        "value": "[parameters('untrustedSubnetName')]"
                     },
                     "trustSubnetName": {
-                        "value": "[variables('trustedSubnetName')]"
+                        "value": "[parameters('trustedSubnetName')]"
                     },
                     "mgmtSubnetPrefix": {
                         "value": "[parameters('mgmtSubnetPrefix')]"
