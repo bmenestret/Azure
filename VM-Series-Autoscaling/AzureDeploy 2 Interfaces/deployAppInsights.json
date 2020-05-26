@@ -16,7 +16,7 @@
             "type": "Microsoft.Insights/components",
             "kind": "web",
             "apiVersion": "[variables('appInsightsApiVersion')]",
-            "location": "eastus",
+            "location": "westeurope",
             "tags": {
                 "PanoramaManaged": "Yes"
             },
