@@ -409,7 +409,7 @@
                         "value": "[parameters('virtualNetworkName')]"
                     },
                     "subnetName": {
-                        "value": "[variables('trustedSubnetName')]"
+                        "value": "[parameters('trustedSubnetName')]"
                     },
                     "loadBalancerName": {
                         "value": "[variables('loadBalancerName')]"
@@ -442,7 +442,7 @@
                         "value": "[variables('vmssName')]"
                     },
                     "vmSize": {
-                         "value": "[parameters('firewallVmSize')]"
+                        "value": "[parameters('firewallVmSize')]"
                     },
                     "vmScaleSetMinCount": {
                         "value": "[parameters('vmScaleSetMinCount')]"
@@ -451,31 +451,31 @@
                         "value": "[parameters('vmScaleSetMaxCount')]"
                     },
                     "vmSku": {
-                         "value": "[parameters('firewallModel')]"
+                        "value": "[parameters('firewallModel')]"
                     },
                     "imageVersion": { 
                         "value": "[parameters('imageVersion')]"
                     },
                     "adminUsername": {
-                         "value": "[parameters('username')]"
+                        "value": "[parameters('username')]"
                     },
                     "adminPassword": {
-                         "value": "[parameters('password')]"
+                        "value": "[parameters('password')]"
                     },
                     "customDataField": {
                         "value": "[variables('customDataField')]"
                     },
                     "virtualNetworkName": {
-                         "value": "[parameters('virtualNetworkName')]"
+                        "value": "[parameters('virtualNetworkName')]"
                     },
                     "subnetNameMgmt": {
-                        "value": "[variables('MgmtSubnetName')]"
+                        "value": "[parameters('MgmtSubnetName')]"
                     },
                     "subnetNameUntrust": {
-                        "value": "[variables('untrustedSubnetName')]"
+                        "value": "[parameters('untrustedSubnetName')]"
                     },
                     "subnetNameTrust": {
-                        "value": "[variables('trustedSubnetName')]"
+                        "value": "[parameters('trustedSubnetName')]"
                     },
                     "fwLbName": {
                         "value": "[variables('loadBalancerName')]"
@@ -508,15 +508,15 @@
             "type": "string"
         },
         "HubFwMgmtSubnetName": {
-            "value": "[variables('MgmtSubnetName')]",
+            "value": "[parameters('mgmtSubnetName')]",
             "type": "string"
         },
         "HubFwUntrustSubnetName": {
-            "value": "[variables('untrustedSubnetName')]",
+            "value": "[parameters('untrustedSubnetName')]",
             "type": "string"
         },
         "HubFwTrustSubnetName": {
-            "value": "[variables('trustedSubnetName')]",
+            "value": "[parameters('trustedSubnetName')]",
             "type": "string"
         },
         "HubFwLoadBalancerIP": {
