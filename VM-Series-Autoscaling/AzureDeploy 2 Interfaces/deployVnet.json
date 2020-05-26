@@ -27,13 +27,6 @@
 				"description": "Subnet for Management"
 			}
 		},
-		"untrustSubnetName": {
-			"type": "string",
-			"defaultValue": "Untrust",
-			"metadata": {
-				"description": "Subnet for Untrust"
-			}
-		},
 		"trustSubnetName": {
 			"type": "string",
 			"defaultValue": "Trust",
@@ -46,13 +39,6 @@
 			"defaultValue": "192.168.0.0/24",
 			"metadata": {
 				"description": "Mgmt subnet CIDR"
-			}
-		},
-		"untrustSubnetPrefix": {
-			"type": "string",
-			"defaultValue": "192.168.1.0/24",
-			"metadata": {
-				"description": "Untrust subnet CIDR"
 			}
 		},
 		"trustSubnetPrefix": {
@@ -81,7 +67,6 @@
 		"vnetname"         : "[parameters('virtualNetworkName')]",
 		"vnetID"           : "[resourceId('Microsoft.Network/virtualNetworks',variables('vnetname'))]",
 		"mgmtSubnetRef"    : "[concat(variables('vnetID'),'/subnets/',parameters('mgmtSubnetName'))]",
-		"untrustSubnetRef" : "[concat(variables('vnetID'),'/subnets/',parameters('untrustSubnetName'))]",
 		"trustSubnetRef"   : "[concat(variables('vnetID'),'/subnets/',parameters('trustSubnetName'))]",
 		"subnets": [
 			{
@@ -91,12 +76,6 @@
 					"networkSecurityGroup": {
 						"id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('nsgName'))]"
 					}
-				}
-			},
-			{
-				"name": "[parameters('untrustSubnetName')]",
-				"properties": {
-					"addressPrefix": "[parameters('untrustSubnetPrefix')]"
 				}
 			},
 			{
@@ -143,26 +122,13 @@
             "condition": "[equals(parameters('deployIntoExistingVnet'), 'Yes')]",
             "apiVersion": "2018-04-01",
             "type": "Microsoft.Network/virtualNetworks/subnets",
-            "name": "[concat(variables('vnetname'), '/', parameters('untrustSubnetName'))]",
-            "location": "[variables('location')]",
-            "properties": {
-                "addressPrefix": "[if(equals(parameters('untrustSubnetPrefix'), 'None'), json('null'), parameters('untrustSubnetPrefix'))]"
-            },
-            "dependsOn": [
-                "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('vnetname'), parameters('mgmtSubnetName'))]"
-            ]
-        },
-        {
-            "condition": "[equals(parameters('deployIntoExistingVnet'), 'Yes')]",
-            "apiVersion": "2018-04-01",
-            "type": "Microsoft.Network/virtualNetworks/subnets",
             "name": "[concat(variables('vnetname'), '/', parameters('trustSubnetName'))]",
             "location": "[variables('location')]",
             "properties": {
                 "addressPrefix": "[if(equals(parameters('trustSubnetPrefix'), 'None'), json('null'), parameters('trustSubnetPrefix'))]"
             },
             "dependsOn": [
-                "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('vnetname'), parameters('untrustSubnetName'))]"
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('vnetname'))]"
             ]
         }
 

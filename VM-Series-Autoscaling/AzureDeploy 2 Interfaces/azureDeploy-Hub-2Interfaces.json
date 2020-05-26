@@ -233,7 +233,6 @@
         "appInsightsName": "[concat(variables('rgname'), '-appinsights-', variables('namingInfix'))]",
         "loadBalancerName": "[concat(variables('rgname'), '-outbound-lb' )]",
         //"mgmtSubnetName" : "[parameters('mgmtSubnetName')]",
-        //"untrustedSubnetName" : "[parameters('untrustedSubnetName')]",
         //"trustedSubnetName" : "[parameters('trustedSubnetName')]",
         "mgmtPublicIPName" : "[concat(variables('rgname'), '-mgmt-pip-', variables('namingInfix'))]",
         "firewallVmName": "[concat(variables('rgName'), '-outbound-vm-series-firewall')]",
@@ -309,9 +308,6 @@
                     },
                     "nsgName": {
                         "value": "[variables('networkSecurityGroupName')]"
-                    },
-                    "srcIPInboundNSG": {
-                        "value": "[parameters('networkSecurityGroupInboundIP')]"
                     },
                     "virtualNetworkAddressPrefix": {
                         "value": "[parameters('virtualNetworkAddressPrefix')]"
@@ -493,10 +489,6 @@
         },
         "HubFwMgmtSubnetName": {
             "value": "[parameters('mgmtSubnetName')]",
-            "type": "string"
-        },
-        "HubFwUntrustSubnetName": {
-            "value": "[parameters('untrustedSubnetName')]",
             "type": "string"
         },
         "HubFwTrustSubnetName": {
