@@ -127,11 +127,10 @@
             "properties": {
                 "addressPrefix": "[if(equals(parameters('trustSubnetPrefix'), 'None'), json('null'), parameters('trustSubnetPrefix'))]"
             },
-            "dependsOn": [
-                "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('vnetname'))]"
+			"dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('vnetname'), parameters('mgmtSubnetName'))]"
             ]
         }
-
 	],
 	"outputs": {
 		"vnetName": {
