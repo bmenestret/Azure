@@ -13,6 +13,13 @@
 				"description": "VNET name"
 			}
 		},
+		"virtualNetworkRG": {
+            "type": "string",
+            "defaultValue": "rg-bmt-vnet",
+            "metadata": {
+                "description": "Virtual Network RG Name of the VM-Series Hub firewall."
+            }
+        },
 		"virtualNetworkAddressPrefix": {
 			"type": "string",
 			"defaultValue": "192.168.0.0/16",
@@ -66,7 +73,7 @@
 		"rgname"           : "[resourceGroup().id]",
 		"vnetname"         : "[parameters('virtualNetworkName')]",
 		"vnetrgname"       : "[parameters('virtualNetworkRG')]",
-		"vnetID"           : "[resourceId('Microsoft.Network/virtualNetworks',variables('vnetname'))]",
+		"vnetID": "[resourceId(parameters('virtualNetworkRG'), 'Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
 		"mgmtSubnetRef"    : "[concat(variables('vnetID'),'/subnets/',parameters('mgmtSubnetName'))]",
 		"trustSubnetRef"   : "[concat(variables('vnetID'),'/subnets/',parameters('trustSubnetName'))]",
 		"subnets": [

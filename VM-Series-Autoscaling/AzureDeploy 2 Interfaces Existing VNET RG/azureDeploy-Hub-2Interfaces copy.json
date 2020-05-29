@@ -218,7 +218,7 @@
     },
     
     "variables": {
-        "baseUrl" : "https://raw.githubusercontent.com/bmenestret/Azure/master/VM-Series-Autoscaling/AzureDeploy%202%20Interfaces/",
+        "baseUrl" : "https://raw.githubusercontent.com/bmenestret/Azure/master/VM-Series-Autoscaling/AzureDeploy%202%20Interfaces%20Existing%20VNET%20RG/",
         "deployNsgURL"         : "[concat(variables('baseUrl'),'/deployNsg.json')]",
         "deployVnetURL"        : "[concat(variables('baseUrl'),'/deployVnet.json')]",
         "deployLoadBalancerURL": "[concat(variables('baseUrl'),'/deployLoadBalancer.json')]",
@@ -230,6 +230,9 @@
         "namingInfix": "[substring(uniqueString(resourceGroup().id), 0, 5)]",
         "location"   : "[resourceGroup().location]",
         "rgname"     : "[resourceGroup().name]",
+        "vnetID": "[resourceId(parameters('virtualNetworkRG'), 'Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
+        "subnetMgmtRef": "[concat(variables('vnetID'),'/subnets/',parameters('managementSubnetName'))]",
+        "subnetTrustRef": "[concat(variables('vnetID'),'/subnets/',parameters('trustSubnetName'))]",
         "networkSecurityGroupName": "[concat(variables('rgname'), '-nsg' )]",
         "hubLoadBalancerSku": "Standard",
         "vmssName": "[concat('pavmfw', variables('namingInfix'))]",
