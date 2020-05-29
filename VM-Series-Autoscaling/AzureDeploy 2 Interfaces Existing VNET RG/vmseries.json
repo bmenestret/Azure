@@ -272,7 +272,8 @@
                                     "name": "[variables('ipConfigNamemgmt')]",
                                     "properties": {
                                         "subnet": {
-                                            "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', 'rg-bmt-vnet', '/providers/Microsoft.Network/virtualNetworks/', parameters('virtualNetworkName'), '/subnets/', parameters('subnetNameMgmt'))]"
+                                            "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', 'azrgpxedi-totalhub-inbound', '/providers/Microsoft.Network/virtualNetworks/', parameters('virtualNetworkName'), '/subnets/', parameters('subnetNameMgmt'))]"
+                                            //"id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', 'rg-bmt-vnet', '/providers/Microsoft.Network/virtualNetworks/', parameters('virtualNetworkName'), '/subnets/', parameters('subnetNameMgmt'))]"
                                             //"id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/virtualNetworks/', parameters('virtualNetworkName'), '/subnets/', parameters('subnetNameMgmt'))]"
                                         
                                         }
