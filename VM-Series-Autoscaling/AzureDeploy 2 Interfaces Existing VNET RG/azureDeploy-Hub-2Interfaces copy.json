@@ -231,8 +231,8 @@
         "location"   : "[resourceGroup().location]",
         "rgname"     : "[resourceGroup().name]",
         "vnetID": "[resourceId(parameters('virtualNetworkRG'), 'Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
-        "subnetMgmtRef": "[concat(variables('vnetID'),'/subnets/',parameters('managementSubnetName'))]",
-        "subnetTrustRef": "[concat(variables('vnetID'),'/subnets/',parameters('trustSubnetName'))]",
+        "subnetMgmtRef": "[concat(variables('vnetID'),'/subnets/',parameters('mgmtSubnetName'))]",
+        "subnetTrustRef": "[concat(variables('vnetID'),'/subnets/',parameters('trustedSubnetName'))]",
         "networkSecurityGroupName": "[concat(variables('rgname'), '-nsg' )]",
         "hubLoadBalancerSku": "Standard",
         "vmssName": "[concat('pavmfw', variables('namingInfix'))]",
@@ -295,7 +295,7 @@
                 "parameters":  {}
             }
         },
-        {    
+/*        {    
             "name": "deployNsg",
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2015-01-01",
@@ -319,8 +319,8 @@
                     }
                 }
             }
-        },
-        {
+        }, */
+/*        {
             "name": "deployVnet",
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2015-01-01",
@@ -363,14 +363,14 @@
                     }
                 }
             }
-        },
+        }, */
         {    
             "name": "deployOutboundLoadBalancer",
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2015-01-01",
-            "dependsOn": [
+/*            "dependsOn": [
                 "Microsoft.Resources/deployments/deployVNet"
-            ],
+            ], */
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
@@ -410,7 +410,7 @@
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2015-01-01",
             "dependsOn": [
-                "Microsoft.Resources/deployments/deployVNet",
+                //"Microsoft.Resources/deployments/deployVNet",
                 "Microsoft.Resources/deployments/deployOutboundLoadBalancer"
             ],
             "properties": {
@@ -449,9 +449,6 @@
                     },
                     "virtualNetworkName": {
                         "value": "[parameters('virtualNetworkName')]"
-                    },
-                    "virtualNetworkRG": {
-                        "value": "[parameters('virtualNetworkRG')]"
                     },
                     "subnetNameMgmt": {
                         "value": "[parameters('MgmtSubnetName')]"
